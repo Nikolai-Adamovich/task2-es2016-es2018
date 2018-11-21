@@ -2,6 +2,7 @@
 import '../scss/style.scss';
 
 import '@babel/polyfill';
+import 'whatwg-fetch';
 import getNews from './get-news.js';
 import drawNewsList from './draw-news-list.js';
 import drawError from './draw-error.js';
@@ -36,7 +37,7 @@ const fetchNews = async () => {
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 window.addEventListener('load', () => {
   fetchNews();
