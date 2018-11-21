@@ -17,7 +17,7 @@ module.exports = (env, options) => {
       publicPath: 'dist'
     },
     devServer: {
-      open: isProd ? false : 'chromium',
+      open: isProd ? false : 'Chrome',
       overlay: true,
       progress: true
     },

@@ -45,7 +45,8 @@
 }
 
 .nav__radio {
-  display: grid;
+  display: flex;
+  flex-direction: column;
 }
 
 .nav__radio-label {
@@ -74,9 +75,8 @@
 }
 
 .nav__buttons-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav__menu-button {

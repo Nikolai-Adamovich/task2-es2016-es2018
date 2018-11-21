@@ -2,6 +2,7 @@
 import '../scss/style.scss';
 
 import '@babel/polyfill';
+import 'whatwg-fetch';
 import getNews from './get-news.js';
 import drawNewsList from './draw-news-list.js';
 import drawError from './draw-error.js';
@@ -28,6 +29,7 @@ const fetchNews = async () => {
         }
       } else {
         drawError(`Sorry. We can't find anything. Try to change your search options.`);
+        paginationRoot.classList.toggle('pagination--visible', false);
       }
     } else {
       drawError(data.message);
@@ -36,7 +38,7 @@ const fetchNews = async () => {
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 window.addEventListener('load', () => {
   fetchNews();
