@@ -1,2 +1,2 @@
-#Task 1: ES6
-[Link to application](https://nikolai-adamovich.github.io/task1-es6-newsapi/ "Hosted on github.io")
+# Task 2: ES2016-ES2018
+[Link to application](https://nikolai-adamovich.github.io/task2-es2016-es2018/ "Hosted on github.io")
