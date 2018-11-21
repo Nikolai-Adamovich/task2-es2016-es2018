@@ -1,11 +1,11 @@
 'use strict';
 import '../scss/style.scss';
 
-import {getNews} from './get-news.js';
-import {drawNewsList} from './draw-news-list.js';
-import {drawError} from './draw-error.js';
+import getNews from './get-news.js';
+import drawNewsList from './draw-news-list.js';
+import drawError from './draw-error.js';
 import {setMainParameters, setPaginationParameters} from './set-parameters';
-import {Pagination} from './pagination.js';
+import Pagination from './pagination.js';
 import {mainParameters, paginationParameters} from './url-parameters';
 
 const fetchNews = () => {
@@ -16,9 +16,11 @@ const fetchNews = () => {
       if (data.totalResults > 0) {
         drawNewsList(data.articles);
         window.scrollTo(0, 0);
+
+        const pageSize = paginationParameters.get('pageSize');
         
-        if (data.totalResults > paginationParameters.get('pageSize')) {
-          new Pagination(paginationRoot, data.totalResults, paginationParameters.get('pageSize'), paginationParameters.get('page') || 1);
+        if (data.totalResults > pageSize) {
+          new Pagination(paginationRoot, data.totalResults, pageSize, paginationParameters.get('page') || 1);
         } else {
           paginationRoot.classList.toggle('pagination--visible', false);
         }

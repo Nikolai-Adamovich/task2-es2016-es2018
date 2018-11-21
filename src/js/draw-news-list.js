@@ -9,14 +9,14 @@ const drawNewsList = (articles) => {
       author,
       title,
       content,
-      description,
+      description = '',
       url,
       urlToImage,
       publishedAt
     } of articles) {
     if (!content && !description) continue;
     /* Fallback in case if content is Null */
-    content = content || description || '';
+    content = content || description;
     news.insertAdjacentHTML('beforeend',
     `<li class="news__item">
       <article class="news__article">
@@ -36,6 +36,4 @@ const drawNewsList = (articles) => {
   }
 };
 
-export {
-  drawNewsList
-};
+export default drawNewsList;

@@ -47,6 +47,4 @@ const getNews = () => {
   return fetch(queryUrl).then(res => res.json());
 };
 
-export {
-  getNews
-};
+export default getNews;

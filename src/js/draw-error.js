@@ -3,6 +3,4 @@ const drawError = (message) => {
   news.innerHTML = `<div class="error">${message}</div>`;
 };
 
-export {
-  drawError
-};
+export default drawError;
