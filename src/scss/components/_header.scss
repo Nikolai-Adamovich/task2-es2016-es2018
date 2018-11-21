@@ -19,8 +19,6 @@
 
 .header__container {
   @include container();
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 20px;
+  display: flex;
   justify-content: space-between;
 }

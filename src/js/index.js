@@ -29,6 +29,7 @@ const fetchNews = async () => {
         }
       } else {
         drawError(`Sorry. We can't find anything. Try to change your search options.`);
+        paginationRoot.classList.toggle('pagination--visible', false);
       }
     } else {
       drawError(data.message);
