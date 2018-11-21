@@ -1,0 +1,9 @@
+.main {
+  padding: 53px 0 40px;
+  background: $light-gray;
+}
+
+.main__container {
+  @include container();
+  height: 100%;
+}

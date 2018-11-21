@@ -1,0 +1,58 @@
+.news {
+  @include breakpoint($large) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
+  }
+}
+
+.news__article {
+  display: grid;
+  height: 100%;
+}
+
+.news__title {
+  font-size: 1.375rem;
+  
+  a {
+    display: block;
+    color: $teal;
+  }
+}
+
+.news__main {
+  @include clear-fix();
+}
+
+.news__image {
+  width: 100%;
+  margin-bottom: 10px;
+  padding-bottom: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  @include breakpoint($small) {
+    width: 50%;
+    margin: 0 15px 10px 0;
+    padding-bottom: 28.125%;
+    float: left;
+  }
+}
+
+.news__content {
+  font-size: 1.125rem;
+}
+
+.news__footer {
+  margin-top: 10px;
+  clear: both;
+  align-self: end;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  font-size: 0.8rem;
+}
+
+.news__published-at {
+  margin-top: 5px;
+}
