@@ -41,10 +41,10 @@ const createQuery = ([field, value], i) => {
   return `${i === 0 ? '?' : '&'}${field}=${encodeURIComponent(value)}`;
 };
 
-const getNews = () => {
+const getNews = async () => {
   const queryUrl = createQueryUrl();
-
-  return fetch(queryUrl).then(res => res.json());
+  const res = await fetch(queryUrl);
+  return res.json();
 };
 
 export default getNews;

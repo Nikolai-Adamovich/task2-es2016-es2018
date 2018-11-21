@@ -1,6 +1,7 @@
 'use strict';
 import '../scss/style.scss';
 
+import '@babel/polyfill';
 import getNews from './get-news.js';
 import drawNewsList from './draw-news-list.js';
 import drawError from './draw-error.js';
@@ -8,10 +9,11 @@ import {setMainParameters, setPaginationParameters} from './set-parameters';
 import Pagination from './pagination.js';
 import {mainParameters, paginationParameters} from './url-parameters';
 
-const fetchNews = () => {
-  getNews().then(data => {
-    const paginationRoot = document.querySelector('.pagination');
-    
+const fetchNews = async () => {
+  const paginationRoot = document.querySelector('.pagination');
+  try {
+    const data = await getNews();
+  
     if (data.status === 'ok') {
       if (data.totalResults > 0) {
         drawNewsList(data.articles);
@@ -31,10 +33,9 @@ const fetchNews = () => {
       drawError(data.message);
       paginationRoot.classList.toggle('pagination--visible', false);
     }
-  })
-  .catch(err => {
+  } catch (err) {
     console.log(err);
-  });
+  }
 }
 
 window.addEventListener('load', () => {
